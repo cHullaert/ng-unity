@@ -3,14 +3,15 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
-
+import { UnityLinkerModule } from './modules/unity-linker/unity-linker.module';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    UnityLinkerModule
   ],
   providers: [],
   bootstrap: [AppComponent]
