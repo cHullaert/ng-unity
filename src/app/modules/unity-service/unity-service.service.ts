@@ -16,7 +16,7 @@ export class UnityService implements OnInit {
 
   public load(componentId: string) {
     window.UnityLoader = UnityLoader;
-    this.gameInstance = UnityLoader.instantiate("gamecontainer", "./assets/build.json");
+    this.gameInstance = UnityLoader.instantiate(componentId, "./assets/build.json");
   }
 
 }
