@@ -7,6 +7,6 @@ import { UnityAppComponent } from '../unity-app/unity-app.component';
     CommonModule
   ],
   declarations: [UnityAppComponent],
-  exports: [UnityAppComponent]
+  exports: [UnityAppComponent] 
 })
 export class UnityLinkerModule { }
