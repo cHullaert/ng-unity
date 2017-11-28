@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { UnityLoader } from './UnityLoader.js';
-declare let window: any;
+import { UnityService } from '../unity-service/unity-service.service';
 
 @Component({
   selector: 'unity-app',
@@ -9,14 +8,11 @@ declare let window: any;
   styleUrls: ['./unity-app.component.css']
 })
 export class UnityAppComponent implements OnInit {
-  private gameInstance: any;
-
-  constructor() { 
+  constructor(private _unityService: UnityService) { 
   }
 
   ngOnInit() {
-    window.UnityLoader = UnityLoader;
-    this.gameInstance = UnityLoader.instantiate("gameContainer", "./assets/build.json");
+    this._unityService.load("gamecontainer");
   }
 
 }
