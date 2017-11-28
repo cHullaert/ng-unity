@@ -19,4 +19,8 @@ export class UnityService implements OnInit {
     this.gameInstance = UnityLoader.instantiate(componentId, "./assets/build.json");
   }
 
+  public sendMessage(messageHandler: string, message: any) {
+    this.gameInstance.SendMessage(messageHandler, message.type, JSON.stringify(message.payload));
+  }
+
 }
