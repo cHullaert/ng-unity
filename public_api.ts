@@ -1,6 +1,1 @@
-{
-    "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
-    "lib": {
-      "entryFile": "public_api.ts"
-    }
-}
+export * from './src/app/modules/unity-linker/unity-linker.module'
