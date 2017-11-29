@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { OnInit } from '@angular/core';
 
+import { loader } from './UnityLoader';
+
 declare let window: any;
 
 @Injectable()
@@ -13,8 +15,8 @@ export class UnityService implements OnInit {
   }
 
   public load(componentId: string) {
-    window.UnityLoader = UnityLoader;
-    this.gameInstance = UnityLoader.instantiate(componentId, "./assets/build.json");
+    window.UnityLoader = loader();
+    this.gameInstance = loader().instantiate(componentId, "./assets/build.json");
   }
 
   public sendMessage(messageHandler: string, message: any) {
