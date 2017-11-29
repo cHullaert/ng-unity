@@ -1,9 +1,11 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
+    "allowJs": true,
     "outDir": "../out-tsc/app",
     "baseUrl": "./",
     "module": "es2015",
+    "target": "es5",
     "types": []
   },
   "exclude": [

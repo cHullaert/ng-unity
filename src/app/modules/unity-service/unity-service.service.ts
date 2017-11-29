@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { OnInit } from '@angular/core';
 
-import { UnityLoader } from './UnityLoader';
-
 declare let window: any;
 
 @Injectable()
