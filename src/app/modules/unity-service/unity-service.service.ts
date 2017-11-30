@@ -36,10 +36,6 @@ export class UnityService implements OnInit {
     this.gameInstance = UnityLoader.instantiate(componentId, this.buildJson);
   }
 
-  public subscribe() {
-
-  }
-
   public registerFlow(observable: Observable<IMessage>) {
     observable.subscribe( message => {
       this.gameInstance.sendMessage(this.messageHandler, this.messageMethod, message);
