@@ -1,18 +1,13 @@
 import { Injectable } from '@angular/core';
 import { OnInit } from '@angular/core';
 
+import { Observable } from "rxjs/Observable";
+import 'rxjs/add/observable/fromEvent';
+
+
 import { UnityLoader } from 'unity-loader';
 
-declare let window: any;
-
-class UnityMethod {
-  constructor(public name: string) {
-  }
-}
-
-interface IDictionary {
-  [index: string]: UnityMethod;
-}
+//declare let window: any;
 
 interface IMessage {
   type: string;
@@ -22,26 +17,33 @@ interface IMessage {
 @Injectable()
 export class UnityService implements OnInit {
   private gameInstance: any;
-  private senders: IDictionary = {};
-    
+
+  public messageHandler: string="MessageHandler";
+  public messageMethod: string="onMessage";
+  public eventType: string="unityEvent";
+  public loaderGlobalVariable: string="UnityLoader";
+  public buildJson: string="./assets/build.json";
+  public messages: Observable<IMessage>;
+
   constructor() { }
 
   ngOnInit() {
+    window[this.loaderGlobalVariable] = UnityLoader;
+    this.messages=Observable.fromEvent(window, this.eventType);
   }
 
   public load(componentId: string) {
-    window.UnityLoader = UnityLoader;
-    this.gameInstance = UnityLoader.instantiate(componentId, "./assets/build.json");
+    this.gameInstance = UnityLoader.instantiate(componentId, this.buildJson);
   }
 
-  public sendMessage(gameObject: string, message: IMessage) {
-    let method=this.senders[message.type] as UnityMethod;
-    if(method) 
-      this.gameInstance.SendMessage(gameObject, method.name, JSON.stringify(message.payload));    
+  public subscribe() {
+
   }
 
-  public registerMessageSender(messageKey: string, unityMethod: UnityMethod) {
-    this.senders[messageKey]=unityMethod;
-  }
+  public registerFlow(observable: Observable<IMessage>) {
+    observable.subscribe( message => {
+      this.gameInstance.sendMessage(this.messageHandler, this.messageMethod, message);
+    });
 
+  }
 }
