@@ -2,7 +2,7 @@
 
 this project is purposed to allow an integration with unity webgl application in component angular 4 easily.  
 
-# How to use it?
+# User side
 
 ## unity side
 
@@ -22,3 +22,12 @@ this project is purposed to allow an integration with unity webgl application in
 * start your application & enjoy
 
 you can find an example on the repository https://github.com/cHullaert/unity-tester
+
+
+# Dev' side
+## Pack the component
+`npm run packagr`
+that will create a dist package of the component
+
+## publish to npm
+`npm publish`
