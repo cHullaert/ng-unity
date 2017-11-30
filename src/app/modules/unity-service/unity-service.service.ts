@@ -28,11 +28,11 @@ export class UnityService implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    window[this.loaderGlobalVariable] = UnityLoader;
     this.messages=Observable.fromEvent(window, this.eventType);
   }
 
   public load(componentId: string) {
+    window[this.loaderGlobalVariable] = UnityLoader;
     this.gameInstance = UnityLoader.instantiate(componentId, this.buildJson);
   }
 
