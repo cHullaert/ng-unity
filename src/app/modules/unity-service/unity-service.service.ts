@@ -39,7 +39,13 @@ export class UnityService implements OnInit {
   public registerFlow(observable: Observable<IMessage>) {
     observable.subscribe(message => {
       this.gameInstance.sendMessage(this.messageHandler, this.messageMethod, message);
-    });
+    },
+      error => {
+        console.log('error on message: ' + error);
+      },
+      () => {
+        console.log('on complete');
+      });
 
   }
 }
