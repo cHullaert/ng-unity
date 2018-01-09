@@ -9,7 +9,7 @@ import { UnityLoader } from 'unity-loader';
 
 //declare let window: any;
 
-interface IMessage {
+export interface IMessage {
   type: string;
   payload: any;
 }
@@ -18,26 +18,26 @@ interface IMessage {
 export class UnityService implements OnInit {
   private gameInstance: any;
 
-  public messageHandler: string="MessageHandler";
-  public messageMethod: string="onMessage";
-  public eventType: string="unityEvent";
-  public loaderGlobalVariable: string="UnityLoader";
-  public buildJson: string="./assets/build.json";
+  public messageHandler: String = 'MessageHandler';
+  public messageMethod: String = 'onMessage';
+  public eventType: String = 'unityEvent';
+  public loaderGlobalVariable: String = 'UnityLoader';
+  public buildJson: String = './assets/build.json';
   public messages: Observable<IMessage>;
 
   constructor() { }
 
   ngOnInit() {
-    this.messages=Observable.fromEvent(window, this.eventType);
+    this.messages = Observable.fromEvent(window, this.eventType.toString());
   }
 
   public load(componentId: string) {
-    window[this.loaderGlobalVariable] = UnityLoader;
+    window[this.loaderGlobalVariable.toString()] = UnityLoader;
     this.gameInstance = UnityLoader.instantiate(componentId, this.buildJson);
   }
 
   public registerFlow(observable: Observable<IMessage>) {
-    observable.subscribe( message => {
+    observable.subscribe(message => {
       this.gameInstance.sendMessage(this.messageHandler, this.messageMethod, message);
     });
 
