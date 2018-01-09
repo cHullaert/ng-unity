@@ -9,7 +9,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "packagr": "ng-packagr -p ng-package.json"
+    "packagr": "ng-packagr -p ng-package.json",
+    "tarball": "(ng-packagr -p ng-package.json && cd dist && yarn pack)"
   },
   "private": false,
   "dependencies": {
