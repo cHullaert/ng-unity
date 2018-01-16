@@ -44,3 +44,5 @@ Thumbs.db
 *.unityweb
 
 src/assets/build.*
+
+src/assets/viewer
