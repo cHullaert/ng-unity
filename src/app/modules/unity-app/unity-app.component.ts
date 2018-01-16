@@ -8,11 +8,11 @@ import { UnityService } from '../unity-service/unity-service.service';
   styleUrls: ['./unity-app.component.css']
 })
 export class UnityAppComponent implements OnInit {
-  constructor(private _unityService: UnityService) { 
+  constructor(private _unityService: UnityService) {
   }
 
   ngOnInit() {
-    this._unityService.load("gamecontainer");
+    this._unityService.load('gamecontainer');
   }
 
 }
