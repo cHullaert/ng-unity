@@ -22,7 +22,6 @@ export class UnityService implements OnInit {
   public messageMethod: String = 'onMessage';
   public eventType: String = 'unityEvent';
   public loaderGlobalVariable: String = 'UnityLoader';
-  public buildJson: String = './assets/build.json';
   public messages: Observable<IMessage>;
 
   constructor() { }
@@ -31,9 +30,9 @@ export class UnityService implements OnInit {
     this.messages = Observable.fromEvent(window, this.eventType.toString());
   }
 
-  public load(componentId: string) {
+  public load(componentId: string, buildJson: string = './assets/build.json') {
     window[this.loaderGlobalVariable.toString()] = UnityLoader;
-    this.gameInstance = UnityLoader.instantiate(componentId, this.buildJson);
+    this.gameInstance = UnityLoader.instantiate(componentId, buildJson);
   }
 
   public registerFlow(observable: Observable<IMessage>) {
