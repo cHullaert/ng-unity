@@ -6,6 +6,7 @@ import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
+import { IMessage } from '../../dist/src/app/modules/unity-service/unity-service.service.d';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +14,7 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  messageInput = '';
   title = 'unity-tester';
 
   constructor(private _unityService: UnityService,
@@ -26,7 +28,6 @@ export class AppComponent {
   }
 
   sendMessage() {
-
-    this._unityService.registerFlow(this.loadMessage('add.json'));
+    this._unityService.registerFlow(Observable.of({ payload: JSON.parse(this.messageInput) } as IMessage));
   }
 }
