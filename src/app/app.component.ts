@@ -6,7 +6,6 @@ import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/map';
-import { IMessage } from '../../dist/src/app/modules/unity-service/unity-service.service.d';
 
 @Component({
   selector: 'app-root',
