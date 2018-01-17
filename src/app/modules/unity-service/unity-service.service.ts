@@ -7,10 +7,7 @@ import 'rxjs/add/observable/fromEvent';
 
 import { UnityLoader } from 'unity-loader';
 
-//declare let window: any;
-
 export interface IMessage {
-  type: string;
   payload: any;
 }
 
