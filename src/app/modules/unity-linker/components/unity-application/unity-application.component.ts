@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { UnityService } from 'src/app/services/unity.service';
+import { UnityService } from '../../services/unity.service';
 
 @Component({
   selector: 'app-unity-application',
