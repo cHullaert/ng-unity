@@ -7,6 +7,7 @@ import { UnityLinkerModule } from './modules/unity-linker/unity-linker.module';
 import { UnityService } from './modules/unity-service/unity-service.service';
 
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     UnityLinkerModule,
     HttpClientModule
   ],
